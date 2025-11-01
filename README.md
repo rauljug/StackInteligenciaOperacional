@@ -1,0 +1,2 @@
+# StackInteligenciaOperacional
+Analisis de negocio
