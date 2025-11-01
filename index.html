@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stack de IO Proactiva | Observabilidad Predictiva para Finanzas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos inspirados en la estética de BMC: Limpio, profesional, acentos de color. */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff; /* Fondo Blanco principal */
+            padding-top: 64px; /* Espacio para la barra de navegación fija */
+        }
+        .bmc-blue {
+            background-color: #007bff; /* Azul primario para acentos y CTA */
+        }
+        .bmc-text-blue {
+            color: #007bff;
+        }
+        .bmc-hover-blue:hover {
+            background-color: #0056b3;
+        }
+        .feature-card {
+            border-top: 5px solid #007bff;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        .title-section {
+            font-size: 3rem;
+            font-weight: 700;
+            line-height: 1.1;
+        }
+        @media (min-width: 640px) {
+            .title-section {
+                font-size: 4rem;
+            }
+        }
+        .nav-link:hover {
+            color: #007bff;
+        }
+        /* Estilo para simular la imagen del diagrama de observabilidad con un placeholder */
+        .dashboard-placeholder {
+            min-height: 250px;
+            background: linear-gradient(135deg, #0f3460 0%, #1e40af 100%); 
+            border: 2px solid #007bff;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- Barra de Navegación Fija (Sticky Nav) - Estilo BMC -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white shadow-md border-b border-gray-100 h-16 flex items-center">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+            <!-- Logo/Marca -->
+            <div class="text-2xl font-bold bmc-text-blue">
+                Stack IO Proactiva
+            </div>
+            
+            <!-- Menú de Navegación -->
+            <div class="hidden md:flex space-x-6 text-gray-700 font-semibold">
+                <a href="#arquitectura" class="nav-link transition duration-150">Arquitectura</a>
+                <a href="#componentes" class="nav-link transition duration-150">Componentes</a>
+                <a href="#resultados" class="nav-link transition duration-150">Resultados</a>
+                <a href="#ia-feature" class="nav-link transition duration-150">Demostración IA</a>
+                <a href="#contacto" class="inline-flex items-center text-red-600 font-bold transition duration-150">Contacto</a>
+            </div>
+            
+            <!-- Botón Móvil (Opcional, se puede expandir si es necesario) -->
+            <button class="md:hidden text-gray-700">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+    </nav>
+    
+    <!-- Header / Hero Section - Diseño Limpio y Clásico de Observabilidad -->
+    <header class="bg-white pt-16 pb-24 border-b border-gray-100">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-4xl mx-auto text-center">
+                <span class="text-sm font-semibold uppercase tracking-widest text-red-600">
+                    Observabilidad y Predictividad para el Sector Financiero
+                </span>
+                <h1 class="title-section text-gray-900 mt-3">
+                    <span class="bmc-text-blue">Stack de IO Proactiva:</span>
+                    <span class="block text-gray-800">Cero Crisis, Máxima Disponibilidad.</span>
+                </h1>
+                <p class="mt-6 text-xl text-gray-600 max-w-2xl mx-auto">
+                    El sistema de Inteligencia Operacional que utiliza **Patrones Históricos** para predecir fallas y transformar la gestión de TI de reactiva a estratégica.
+                </p>
+                <div class="mt-10">
+                    <a href="#contacto" class="inline-flex items-center justify-center px-8 py-4 border border-transparent text-base font-bold rounded-md shadow-lg text-white bmc-blue bmc-hover-blue transition duration-300 transform hover:scale-105">
+                        Solicitar Demostración Ejecutiva
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Placeholder Visual - Dashboard Mockup (Adaptado a estética oscura) -->
+    <section class="mb-16">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-5xl mx-auto rounded-lg overflow-hidden shadow-2xl dashboard-placeholder p-8 flex items-center justify-center">
+                 <div class="text-center text-gray-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-16 h-16 mx-auto text-blue-400 mb-3">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125l6.702 4.25c1.096.696 2.506.452 3.485-.664L21 4.5M3 13.125C3 12.559 3 12 3 12s.001-.225 0-.45v4.95l6.702-4.25c.98-.625 2.215-.625 3.295 0l6.51 4.135M21 4.5l-6.51 4.135c-.98.625-2.215.625-3.295 0L3 8.135" />
+                    </svg>
+                    <p class="text-lg font-semibold">Dashboard de Predicción Operacional (Simulación)</p>
+                    <p class="text-sm">Visibilidad Ejecutiva en tiempo real. Se integra con esquemas de geolocalización.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección 1: Arquitectura de la Proactividad -->
+    <section id="arquitectura" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+            <h2 class="text-4xl font-bold text-gray-900 mb-6 text-center">Arquitectura de la Proactividad</h2>
+            <p class="text-xl mb-12 text-gray-600 max-w-3xl mx-auto text-center">
+                El Stack de IO Proactiva se construye sobre tres pilares de inteligencia interconectados. Este flujo garantiza que cada dato operativo se convierta en una decisión predictiva.
+            </p>
+
+            <!-- Diagrama -->
+            <div class="diagram-container mb-16 p-8 bg-white rounded-lg shadow-xl">
+                <h3 class="text-xl font-semibold mb-4 text-center text-gray-700">Flujo de Inteligencia Operacional Proactiva</h3>
+                <img src="uploaded:image_ef565f.png-6d540fb3-2b27-4448-94e3-ad10cbc950f7" 
+                     alt="Diagrama del Stack de Inteligencia Operacional con Grafana, IA Gemini y Power BI" 
+                     class="w-full h-auto rounded-lg"
+                     onerror="this.onerror=null; this.src='https://placehold.co/900x400/f3f4f6/374151?text=DIAGRAMA+DE+ARQUITECTURA+DE+IO';"
+                     loading="lazy">
+            </div>
+
+            <!-- Explicación Detallada del Flujo - Columnas en el estilo BMC -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <div class="p-6 bg-white rounded-lg shadow-md border-b-4 border-blue-500">
+                    <h3 class="text-2xl font-bold bmc-text-blue mb-3">1. Grafana (Dato Operacional)</h3>
+                    <p class="text-gray-700 mb-4">
+                        **Captura y Monitorización:** Nuestra capa de ingesta recolecta logs, métricas y transaccionalidad en tiempo real de toda la infraestructura. Proporciona la **Visibilidad Ejecutiva** instantánea necesaria para reaccionar.
+                    </p>
+                    <p class="text-sm text-gray-500">
+                        Se integra con plataformas críticas (UNIX/Linux, Windows, Call Center) para una visión 360°.
+                    </p>
+                </div>
+
+                <div class="p-6 bg-white rounded-lg shadow-md border-b-4 border-red-500">
+                    <h3 class="text-2xl font-bold text-red-700 mb-3">2. IA (Gemini) (Patrón Predictivo)</h3>
+                    <p class="text-gray-700 mb-4">
+                        **Predicción Activa:** El motor de IA analiza los datos de Grafana contra el *Histórico de Patrones*. Genera un **Score de Riesgo** al identificar desviaciones sutiles, anticipando fallas inminentes o saturación de recursos.
+                    </p>
+                    <p class="text-sm text-gray-500">
+                        Convierte el ruido en alertas preactivas de alto valor, evitando caídas de servicio.
+                    </p>
+                </div>
+
+                <div class="p-6 bg-white rounded-lg shadow-md border-b-4 border-green-500">
+                    <h3 class="text-2xl font-bold text-green-700 mb-3">3. Power BI (Estrategia de Negocio)</h3>
+                    <p class="text-gray-700 mb-4">
+                        **Toma de Decisión:** Transforma las alertas y predicciones en **Tableros Ejecutivos Estratégicos**. Alinea la salud tecnológica con la **dirección y continuidad** del negocio, facilitando la gestión de Cambios (ITIL 4.0).
+                    </p>
+                    <p class="text-sm text-gray-500">
+                        Provee *insights* claros para la Dirección, eliminando la ambigüedad técnica.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Sección 2: Componentes Clave del Stack -->
+    <section id="componentes" class="py-20 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+            <h2 class="text-4xl font-bold text-gray-900 section-title mb-12 text-center">Componentes Clave del Stack</h2>
+            <p class="text-xl mb-12 text-gray-600 max-w-3xl mx-auto text-center">
+                Diseñado para integrarse con sus plataformas críticas y procesos internos, optimizando la gestión de Incidentes, Problemas y Cambios (IPC).
+            </p>
+
+            <div class="space-y-12">
+                
+                <div class="bg-gray-50 p-6 md:p-8 rounded-lg shadow-lg flex flex-col md:flex-row items-start feature-card">
+                    <div class="flex-shrink-0 mb-4 md:mb-0 md:mr-8 text-blue-500">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-10.5 7.5 7.5-10.5 10.5L3.75 13.5zM12 21.75a9.75 9.75 0 100-19.5 9.75 9.75 0 000 19.5z" />
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold mb-2 text-gray-900 bmc-text-blue">Motor de Ingesta y Análisis (Loki & Bases de Datos)</h3>
+                        <p class="text-lg text-gray-700">Recolección masiva de *logs* y métricas de todas las aplicaciones productivas. Identifica desviaciones respecto al comportamiento histórico, como la latencia del cálculo de calificación de cartera y procesos críticos. Es el cimiento de la observabilidad.</p>
+                        <ul class="list-disc list-inside mt-3 text-sm text-gray-600 space-y-1">
+                            <li>**Capacidad:** Ingesta de millones de eventos por segundo.</li>
+                            <li>**Integración:** Soporte nativo para UNIX/Linux, Windows y sistemas empresariales.</li>
+                        </ul>
+                                            </div>
+                </div>
+
+                <div class="bg-gray-50 p-6 md:p-8 rounded-lg shadow-lg flex flex-col md:flex-row items-start feature-card border-t-4 border-red-500">
+                    <div class="flex-shrink-0 mb-4 md:mb-0 md:mr-8 text-red-500">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v-.375c0-.621.503-1.125 1.125-1.125h4.75c.621 0 1.125.504 1.125 1.125v.375M12 4.875A.75.75 0 0112.75 5.625v7.5a.75.75 0 01-1.5 0V5.625A.75.75 0 0112 4.875zM12 18a.75.75 0 100-1.5.75.75 0 000 1.5z" />
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold mb-2 text-gray-900 text-red-700">Módulo de Predicción Proactiva (ML/IA)</h3>
+                        <p class="text-lg text-gray-700">Motor de Machine Learning que aplica algoritmos sobre el **comportamiento histórico** para generar un *score* de riesgo. Predice la necesidad de intervención o Control de Cambios antes de la saturación, minimizando fallos en plataformas virtualizadas.</p>
+                        <ul class="list-disc list-inside mt-3 text-sm text-gray-600 space-y-1">
+                            <li>**Funcionalidad:** Generación de alertas preactivas basadas en patrones de consumo y latencia.</li>
+                            <li>**Impacto:** Permite la gestión proactiva de Cambios y minimiza los riesgos de continuidad.</li>
+                        </ul>
+                                            </div>
+                </div>
+
+                <div class="bg-gray-50 p-6 md:p-8 rounded-lg shadow-lg flex flex-col md:flex-row items-start feature-card border-t-4 border-green-500">
+                    <div class="flex-shrink-0 mb-4 md:mb-0 md:mr-8 text-green-500">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 7.5l-2.25-1.375M21 7.5v6.75m0-6.75L19.5 7.5m2.25 0l-2.25 1.375M3 10.5h18" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 7.5v9m0 0l-3-3m3 3l3-3" />
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold mb-2 text-gray-900 text-green-700">Estrategia de Reporte (Power BI & ITIL 4.0)</h3>
+                        <p class="text-lg text-gray-700">Convierte el conocimiento técnico en información de negocio. Los Tableros Ejecutivos alinean la salud operativa con la **dirección de crecimiento** institucional y facilitan la Gestión de Incidentes, Problemas y Cambios (IPC) bajo ITIL 4.0. </p>
+                        <ul class="list-disc list-inside mt-3 text-sm text-gray-600 space-y-1">
+                            <li>**Enfoque:** Reporte de impacto financiero y riesgo por área (incluyendo geolocalización).</li>
+                            <li>**Beneficio:** Proceso estandarizado y optimizado que aumenta la disponibilidad de producción.</li>
+                        </ul>
+                                            </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección 3: Resultados Estratégicos que Entregamos -->
+    <section id="resultados" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+            <h2 class="text-4xl font-bold text-gray-900 section-title mb-12 text-center">Resultados Estratégicos que Entregamos</h2>
+            <p class="text-xl mb-12 text-gray-600 max-w-3xl mx-auto text-center">
+                Convertimos la observabilidad en previsión de negocio. Nuestros clientes logran **aumentar la disponibilidad de producción en más de un 40%** al adoptar un enfoque proactivo.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <div class="bg-white p-6 rounded-lg shadow-sm feature-card border-blue-500">
+                    <div class="text-blue-500 mb-3">
+                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-8 h-8">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125l6.702 4.25c1.096.696 2.506.452 3.485-.664L21 4.5M3 13.125C3 12.559 3 12 3 12s.001-.225 0-.45v4.95l6.702-4.25c.98-.625 2.215-.625 3.295 0l6.51 4.135M21 4.5l-6.51 4.135c-.98.625-2.215.625-3.295 0L3 8.135" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Previsión de Incidentes</h3>
+                    <p class="text-gray-600 text-sm">La inteligencia de patrones detiene la crisis antes de que afecte al cliente o a la transaccionalidad.</p>
+                                    </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm feature-card border-red-500">
+                    <div class="text-red-500 mb-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-8 h-8">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18L9 11.25l4.306 4.307 4.707-4.707 3.319 3.318h-.75" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 18.75a.75.75 0 100-1.5.75.75 0 000 1.5zm6.75-6a.75.75 0 100-1.5.75.75 0 000 1.5z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Eficiencia Operativa</h3>
+                    <p class="text-gray-600 text-sm">Alineación del Proceso de Cambios (ITIL 4.0) con datos predictivos, garantizando liberaciones ordenadas.</p>
+                                    </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm feature-card border-green-500">
+                    <div class="text-green-500 mb-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-8 h-8">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m0-4.5V18m0 0l-3-3m3 3l3-3m-9-3.75h9.75M12 21a9 9 0 100-18 9 9 0 000 18z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Información de Negocio</h3>
+                    <p class="text-gray-600 text-sm">La Dirección recibe información estratégica para la continuidad y la **dirección de crecimiento** institucional.</p>
+                                    </div>
+
+                 <div class="bg-white p-6 rounded-lg shadow-sm feature-card border-yellow-500">
+                    <div class="text-yellow-500 mb-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-8 h-8">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.5 20.5v1a.75.75 0 001.5 0v-1a4.5 4.5 0 019 0v1a.75.75 0 001.5 0v-1" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Impulso al Equipo</h3>
+                    <p class="text-gray-600 text-sm">Potencia la colaboración y la productividad, elevando la calidad de vida de sus colaboradores.</p>
+                                    </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección 4: Gemini Feature - Demostración IA -->
+    <section class="py-16 bg-white border-t border-gray-100" id="ia-feature">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl text-center">
+            <h2 class="text-4xl font-bold bmc-text-blue section-title mx-auto mb-6">✨ Demostración IA (Genere Preguntas Estratégicas)</h2>
+            <p class="text-xl mb-8 text-gray-700">
+                Ingrese su mayor desafío operativo actual. Nuestra IA generará instantáneamente las 3 preguntas estratégicas que el Stack de IO está diseñado a responder de forma proactiva.
+            </p>
+            
+            <div class="bg-gray-50 p-8 rounded-lg shadow-lg">
+                <label for="operationalChallenge" class="block text-left text-lg font-semibold mb-2 text-gray-900">
+                    Desafío Operativo (Ej: Alta latencia en transacciones críticas):
+                </label>
+                <input type="text" id="operationalChallenge" placeholder="Ingrese su desafío..." class="w-full p-3 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 transition duration-150" value="Latencia creciente en la calificación de cartera de préstamos">
+                
+                <button onclick="generateStrategicQuestions()" id="generateBtn" class="mt-5 w-full md:w-auto inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-bold rounded-md shadow-md text-white bmc-blue bmc-hover-blue transition duration-300 transform hover:scale-[1.02]">
+                    <span id="btnText">Generar 3 Preguntas Estratégicas ✨</span>
+                    <span id="loadingSpinner" class="hidden ml-2">
+                        <svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                    </span>
+                </button>
+
+                <div id="resultContainer" class="mt-8 pt-6 border-t border-gray-200 hidden">
+                    <h4 class="text-xl font-bold text-left mb-4 text-green-700">Preguntas Clave que Nuestro Stack Responde:</h4>
+                    <div id="resultContent" class="text-left text-gray-700 bg-green-50 p-4 rounded-lg border border-green-200">
+                        <!-- El contenido generado por la IA se insertará aquí -->
+                    </div>
+                </div>
+                <div id="errorContainer" class="mt-4 text-red-600 hidden text-left text-sm">
+                    <!-- Los errores se insertarán aquí -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action / Contacto -->
+    <section id="contacto" class="py-20 bg-gray-900 text-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl text-center">
+            <h2 class="text-4xl sm:text-5xl font-extrabold mb-4 text-white">
+                El futuro es Proactivo. <span class="bmc-text-blue">Comience Hoy.</span>
+            </h2>
+            <p class="text-xl mb-10 text-gray-400">
+                Agende un análisis de su arquitectura y descubra cómo podemos garantizar su crecimiento.
+            </p>
+            <a href="mailto:[Su Email]" class="inline-flex items-center justify-center px-10 py-4 border border-transparent text-lg font-bold rounded-md shadow-lg text-white bmc-blue bmc-hover-blue transition duration-300 transform hover:scale-105">
+                Contáctenos
+            </a>
+            <p class="mt-4 text-sm text-gray-600">
+                [Su Nombre/Empresa] | Email: [Información de Contacto]
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 text-gray-500 py-6 border-t border-gray-200">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm">
+            &copy; 2025 Stack de Inteligencia Operacional. Todos los derechos reservados.
+        </div>
+    </footer>
+
+    <script>
+        // Configuración de la API y función de reintento
+        const apiKey = ""; // La clave será inyectada en el entorno de Canvas
+        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
+
+        // Función de reintento con retroceso exponencial
+        async function retryFetch(url, options, maxRetries = 5) {
+            for (let i = 0; i < maxRetries; i++) {
+                try {
+                    const response = await fetch(url, options);
+                    if (response.status !== 429 && response.status < 500) {
+                        return response; // Éxito o error no relacionado con throttling
+                    }
+                    // Si es 429 (Too Many Requests) o un error de servidor (>= 500), esperamos y reintentamos
+                    const delay = Math.pow(2, i) * 1000 + Math.random() * 1000;
+                    await new Promise(resolve => setTimeout(resolve, delay));
+                } catch (error) {
+                    // Esperamos antes de reintentar si hay un error de red
+                    const delay = Math.pow(2, i) * 1000 + Math.random() * 1000;
+                    await new Promise(resolve => setTimeout(resolve, delay));
+                }
+            }
+            throw new Error('Máximo número de reintentos alcanzado. La API no respondió correctamente.');
+        }
+
+        // Función principal para la generación de preguntas
+        async function generateStrategicQuestions() {
+            const challengeInput = document.getElementById('operationalChallenge');
+            const resultContainer = document.getElementById('resultContainer');
+            const resultContent = document.getElementById('resultContent');
+            const loadingSpinner = document.getElementById('loadingSpinner');
+            const btnText = document.getElementById('btnText');
+            const generateBtn = document.getElementById('generateBtn');
+            const errorContainer = document.getElementById('errorContainer');
+            
+            // Limpiar y preparar la UI
+            resultContainer.classList.add('hidden');
+            errorContainer.classList.add('hidden');
+            resultContent.innerHTML = '';
+            
+            const challenge = challengeInput.value.trim();
+            if (challenge === "") {
+                errorContainer.innerHTML = 'Por favor, ingrese un desafío operativo para continuar.';
+                errorContainer.classList.remove('hidden');
+                return;
+            }
+
+            // Deshabilitar botón y mostrar spinner
+            generateBtn.disabled = true;
+            btnText.textContent = 'Analizando...';
+            loadingSpinner.classList.remove('hidden');
+
+            const systemPrompt = "Actúa como un experto en Inteligencia Operacional (IO) y procesos ITIL. Tu tarea es analizar un desafío operacional proporcionado por el usuario y generar una lista de 3 preguntas estratégicas y de alto nivel que el 'Stack de IO Proactiva' resolvería o respondería de forma predictiva. Las preguntas deben ser enfocadas en impacto de negocio, riesgos y eficiencia.";
+            
+            const userQuery = `Basado en el desafío operativo: "${challenge}". Genera la lista de 3 preguntas de negocio, presentadas en formato de lista (Markdown).`;
+
+            const payload = {
+                contents: [{ parts: [{ text: userQuery }] }],
+                // Se utiliza Google Search Grounding para asegurar que la respuesta esté basada en conceptos actuales de IO/ITIL.
+                tools: [{ "google_search": {} }],
+                systemInstruction: {
+                    parts: [{ text: systemPrompt }]
+                },
+                // Configuración de idioma (español)
+                config: {
+                    language: 'es'
+                }
+            };
+
+            try {
+                const response = await retryFetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                const result = await response.json();
+                
+                // Procesar la respuesta
+                const generatedText = result.candidates?.[0]?.content?.parts?.[0]?.text;
+
+                if (generatedText) {
+                    // Convertir Markdown básico (lista) a HTML para visualización
+                    const htmlContent = generatedText
+                        .split('\n')
+                        .map(line => line.trim())
+                        .filter(line => line.startsWith('* ') || line.startsWith('- '))
+                        .map(line => `<li>${line.substring(2).trim()}</li>`)
+                        .join('');
+                    
+                    if (htmlContent) {
+                        resultContent.innerHTML = `<ul class="list-disc list-inside space-y-2">${htmlContent}</ul>`;
+                        resultContainer.classList.remove('hidden');
+                    } else {
+                        resultContent.innerHTML = generatedText;
+                        resultContainer.classList.remove('hidden');
+                    }
+                    
+                    // Manejar las citas (grounding sources), aunque no se muestran explícitamente, es buena práctica.
+                    const groundingMetadata = result.candidates[0].groundingMetadata;
+                    if (groundingMetadata && groundingMetadata.groundingAttributions) {
+                         // Aquí se procesarían las fuentes si fuera necesario mostrarlas en el UI.
+                    }
+
+                } else {
+                    throw new Error('La IA no pudo generar una respuesta útil.');
+                }
+
+            } catch (error) {
+                console.error('Error al llamar a la API de Gemini:', error);
+                errorContainer.innerHTML = 'Ocurrió un error: No fue posible contactar al motor de IA. Por favor, inténtelo de nuevo.';
+                errorContainer.classList.remove('hidden');
+            } finally {
+                // Restaurar el botón y el spinner
+                generateBtn.disabled = false;
+                btnText.textContent = 'Generar 3 Preguntas Estratégicas ✨';
+                loadingSpinner.classList.add('hidden');
+            }
+        }
+    </script>
+
+</body>
+</html>
